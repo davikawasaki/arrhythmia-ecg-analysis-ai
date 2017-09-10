@@ -1,0 +1,9 @@
+Source: record mitdb/203
+val has 1 row (signal) and 650000 columns (samples/signal)
+Duration:    30:05
+Sampling frequency: 360 Hz  Sampling interval: 0.002777777778 sec
+Row	Signal	Gain	Base	Units
+1	MLII	200	1024	mV
+
+To convert from raw units to the physical units shown
+above, subtract 'base' and divide by 'gain'.
