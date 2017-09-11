@@ -1,16 +1,16 @@
-# Arrhythmia Classification through Characteristics Extraction with Discrete Wavelet Transform & Machine Learning
+# Arrhythmia Classification through Characteristics Extraction with Discrete Wavelet Transform & Supervised Training
 
-This work covers cardiac arrhythmia classification through extraction of heart waves characteristics using discrete wavelet transform to filter the signal and machine learning to classify the exported characteristics with labels.
+This work covers cardiac arrhythmia classification through extraction of heart waves characteristics using discrete wavelet transform to filter the signal and machine learning supervised training to classify the exported characteristics with labels.
 
-The goal was to classify at least two arrhythmia through some extracted characteristics with a data mining software.
+The goal is to classify at least two arrhythmia through some extracted characteristics with Weka and MATLAB.
 
-# SOFTWARES USED
+# SOFTWARES IN USE
 
 1) [MATLAB R2015b](https://www.mathworks.com/products/new_products/release2015b.html)
 
 2) [WEKA 3](http://www.cs.waikato.ac.nz/ml/weka/documentation.html)
 
-# LIBRARIES USED
+# LIBRARIES IN USE
 
 1) [MIT-BIH Arrhythmia Database - PhysioBank ATM](https://physionet.org/cgi-bin/atm/ATM)
 
@@ -100,7 +100,7 @@ arrhythmiaPeriods = readArrythmiaPeriods(type, filepath);
 arrhythmiaMultipleQRS = extractMultipleQRS(arrhythmiaPeriods, sizeEcgSig, timeEcgSig, ecgsig, tmSeg, filename, type);
 ```
 
-![Extracted QRS window for Trigeminy Ventricular arrhythmia sample](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-pds/master/Code/graphs/201m/T-example1-201m.png)
+![Extracted QRS window for Trigeminy Ventricular arrhythmia sample](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Code/graphs/201m/T-example1-201m.png)
 
 4) Decompose the windowed-signal into time-varying frequency (scale) components with MODWT and IMODWT and extract the signal peaks amplitude and locations (feature characteristics). This command will also plot and save in /matlab folder a PNG image for each plot - for any arrhythmias cases except Normal Sinus Rhythm (N):
 
@@ -108,7 +108,7 @@ arrhythmiaMultipleQRS = extractMultipleQRS(arrhythmiaPeriods, sizeEcgSig, timeEc
 DWTsignalPeaks = extractDWTsignalPeaks(arrhythmiaMultipleQRS, 0.5, 0.150, filename, type);
 ```
 
-![Extracted signal peaks for Trigeminy Ventricular arrhythmia sample transformed with DWT](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-pds/master/Code/graphs/201m/T-peaks1-201m.png)
+![Extracted signal peaks for Trigeminy Ventricular arrhythmia sample transformed with DWT](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Code/graphs/201m/T-peaks1-201m.png)
 
 5) Lastly, extract the ECG features from the DWTsignalPeaks to a CSV or to another variable:
 
@@ -118,31 +118,17 @@ features = extractEcgFeatures(DWTsignalPeaks, exportFilename);
 
 # MACHINE LEARNING STEPS
 
-With the features extracted in a CSV, an ARFF (Attribute-Relation File Format) file was constructed to be inputed in WEKA software.
-
-Inside WEKA explorer, open the ARFF file (4types.arff) in the preprocess tab:
-
-![WEKA preprocess tab with 4types.arff loaded file](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-pds/master/Article/final/img/preprocess_4types_file.png)
-
-After the file was loaded, the machine learning process can be instantiated with a classifier option (Bayesian Networks, Neural Networks, Trees and others) and a test option. In this project, two classifiers were choosen to test (ANN and Random Forest) with a percentage split of 80% (80% of the data to training and the 20% rest to testing):
-
-![WEKA preprocess tab with 4types.arff loaded file](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-pds/master/Article/final/img/process_classifier_test_options.png)
-
-With the test evaluation (split instances and confusion matrix) results, the ECG arrhythmia extraction and analysis were well evaluated for the Random Forest algorithm, while for the ANN algorithm the results weren't quite expected.
+In development.
 
 # AUTHORS
 
-This work was meant to a DSP undergrad-subject last project. The people involved in the project were:
+This work is being developed to AI undergrad-subject last project. The people involved in the project were:
 
 Student: KAWASAKI, Davi // davishinjik [at] gmail.com
 
-Student: ROZAN, Higor Augusto Bassi // higorb.rozan [at] gmail.com
+Student: FLAUSINO, Matheus // matheusnegocio [at] gmail.com
 
-Student: BERTONCINI, João Vitor // joaobertoncini [at] alunos.utfpr.edu.br
-
-Student: ROMANO, Vinicius Drago // romano [at] alunos.utfpr.edu.br
-
-Professor: SPATTI, Danilo Hernane // danilospatti [at] utfpr.edu.br
+Professor: SAITO, Priscila Tiemi Maeda // psaito [at] utfpr.edu.br
 
 # CONTACT & FEEDBACKS
 
