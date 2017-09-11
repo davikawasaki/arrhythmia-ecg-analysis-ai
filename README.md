@@ -126,7 +126,7 @@ This work is being developed to AI undergrad-subject last project. The people in
 
 Student: KAWASAKI, Davi // davishinjik [at] gmail.com
 
-Student: FLAUSINO, Matheus // matheusnegocio [at] gmail.com
+Student: FLAUSINO, Matheus // matheus.negocio [at] gmail.com
 
 Professor: SAITO, Priscila Tiemi Maeda // psaito [at] utfpr.edu.br
 
