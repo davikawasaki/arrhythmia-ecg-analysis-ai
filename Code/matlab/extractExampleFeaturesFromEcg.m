@@ -1,9 +1,7 @@
 function features = extractExampleFeaturesFromEcg(filename, filepath, type, exportFilename)
 
-% usage: features = extractExampleFeaturesFromEcg('200m', '../data/200m', 'VT', '../data/exported/vt-200m')
-%
+% [USAGE] features = extractExampleFeaturesFromEcg('200m', '../data/200m', 'VT', '../data/exported/vt-200m')
 % This function shows step by step to extract features from a ECG file.
-%
 
 % Last version
 % extractEcgFeatures.m           D. Kawasaki			17 June 2017
@@ -23,7 +21,10 @@ arrhythmiaMultipleQRS = extractMultipleQRS(arrhythmiaPeriods, sizeEcgSig, timeEc
 % Then extract the signal peaks with DWT
 DWTsignalPeaks = extractDWTsignalPeaks(arrhythmiaMultipleQRS, 0.5, 0.150, filename, type);
 
+% Get age, sex and medicine characteristics
+[age, sex, medicine] = readPatientInfo(filepath);
+
 % Lastly, extract the ECG features to a CSV or to another variable
-features = extractEcgFeatures(DWTsignalPeaks, exportFilename);
+features = extractEcgFeatures(DWTsignalPeaks, exportFilename, age, sex, medicine);
     
 end
