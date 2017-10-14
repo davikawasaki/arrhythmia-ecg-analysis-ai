@@ -1,6 +1,8 @@
 # Arrhythmia Classification through Characteristics Extraction with Discrete Wavelet Transform & Supervised Training
 
-This work covers cardiac arrhythmia classification through extraction of heart waves characteristics using discrete wavelet transform to filter the signal and machine learning supervised training to classify the exported characteristics with labels.
+ > :warning: This is a continuation of [another project](https://github.com/davikawasaki/arrhythmia-ecg-analysis-pds), developed to Digital Signal Processing College Final Work. In here it's added another four feature characteristics and MATLAB is used as a classifier engine. Consider seeing the DSP repository if you want a smaller version of this project.
+
+This work covers cardiac arrhythmia classification through extraction of heart waves characteristics using discrete wavelet transform to filter the signal and machine learning supervised training to classify the exported characteristics with classes/true labels.
 
 The goal is to classify at least two arrhythmia through some extracted characteristics with Weka and MATLAB.
 
@@ -110,11 +112,50 @@ DWTsignalPeaks = extractDWTsignalPeaks(arrhythmiaMultipleQRS, 0.5, 0.150, filena
 
 ![Extracted signal peaks for Trigeminy Ventricular arrhythmia sample transformed with DWT](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Code/graphs/201m/T-peaks1-201m.png)
 
-5) Lastly, extract the ECG features from the DWTsignalPeaks to a CSV or to another variable:
+5) Extract age, sex and medicine intake as feature characteristics:
+
+```
+[age, sex, medicine] = readPatientInfo(filepath)
+```
+
+6) Lastly, extract the ECG features from the DWTsignalPeaks to a CSV or to another variable:
 
 ```
 features = extractEcgFeatures(DWTsignalPeaks, exportFilename);
 ```
+
+Below there are some extractions made accordingly to the arrhythmia availability in each MIT-BIH arrhythmia database file:
+
+```
+features = extractExampleFeaturesFromEcg('100m', '../data/100m', 'N', '../data/exported/N-100m');
+features = extractExampleFeaturesFromEcg('101m', '../data/101m', 'N', '../data/exported/N-101m');
+features = extractExampleFeaturesFromEcg('106m', '../data/106m', 'B', '../data/exported/B-106m');
+features = extractExampleFeaturesFromEcg('106m', '../data/106m', 'T', '../data/exported/T-106m');
+features = extractExampleFeaturesFromEcg('106m', '../data/106m', 'VT', '../data/exported/VT-106m');
+features = extractExampleFeaturesFromEcg('119m', '../data/119m', 'B', '../data/exported/B-119m');
+features = extractExampleFeaturesFromEcg('200m', '../data/200m', 'VT', '../data/exported/VT-200m');
+features = extractExampleFeaturesFromEcg('201m', '../data/201m', 'T', '../data/exported/T-201m');
+features = extractExampleFeaturesFromEcg('203m', '../data/203m', 'VT', '../data/exported/VT-203m');
+features = extractExampleFeaturesFromEcg('205m', '../data/205m', 'VT', '../data/exported/VT-205m');
+features = extractExampleFeaturesFromEcg('207m', '../data/207m', 'VT', '../data/exported/VT-207m');
+features = extractExampleFeaturesFromEcg('208m', '../data/208m', 'T', '../data/exported/T-208m');
+features = extractExampleFeaturesFromEcg('210m', '../data/210m', 'B', '../data/exported/B-210m');
+features = extractExampleFeaturesFromEcg('213m', '../data/213m', 'VT', '../data/exported/VT-213m');
+features = extractExampleFeaturesFromEcg('214m', '../data/214m', 'VT', '../data/exported/VT-214m');
+features = extractExampleFeaturesFromEcg('215m', '../data/215m', 'VT', '../data/exported/VT-215m');
+features = extractExampleFeaturesFromEcg('223m', '../data/223m', 'VT', '../data/exported/VT-223m');
+features = extractExampleFeaturesFromEcg('233m', '../data/233m', 'VT', '../data/exported/VT-233m');
+```
+
+As seen, there were some files that weren't read, as anothers that some of their arrhythmia couldn't be read. The list of files associated with each arrhythmia analysed is listed below:
+
+Normal Synus Rhythm: All
+
+Ventricular Bigeminy: 106, 119, 210
+
+Ventricular Trigeminy: 106, 119, 201, 208, 210
+
+Ventricular Tachycardia: 106, 200, 203, 205, 207, 210, 213, 214, 215, 223, 233
 
 # MACHINE LEARNING STEPS
 
