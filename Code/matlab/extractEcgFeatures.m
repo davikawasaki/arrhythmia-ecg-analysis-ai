@@ -54,7 +54,7 @@ end
 
 featuresExtr = strcat(fileName, '.csv');
 features
-featuresTable = cell2table(features, 'VariableNames',{'Amplitude','RR','Velocidade','Idade','Sexo','Remedios','Arritmia'});
+featuresTable = cell2table(features, 'VariableNames',{'Amplitude','RR','Speed','Age','Sex','Medicine','Arrhythmia'});
 writetable(featuresTable, featuresExtr);
 
 end
