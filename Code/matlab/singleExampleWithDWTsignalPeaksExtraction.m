@@ -1,14 +1,12 @@
 function [tmSeg,ecgsig,Fs,sizeEcgSig,timeEcgSig,annotationsEcg,qrsExtracted,tmExtracted,ecgsigTransf,qrsPeaks,locs] = singleExampleWithDWTsignalPeaksExtraction(filename, filepath, arrhythmiaType, minutes, seconds, period, scale, minPeakHeight, minPeakDistance) 
 
-% Usage: function [tmSeg,ecgsig,Fs,sizeEcgSig,timeEcgSig
+% USAGE: function [tmSeg,ecgsig,Fs,sizeEcgSig,timeEcgSig
 %                  annotationsEcg,qrsExtracted,tmExtracted
 %                  ecgsigTransf,qrsPeaks,locs] =
 %                  singleExampleWithDWTsignalPeaksExtraction('200m', '../data/200m',
 %                                                            'VT', 0, 7.517, 2706,
 %                                                            3, 0.5, 0.150);
-%
 % This function plots and extracts QRS peaks example.
-%
 
 % Last version
 % singleExampleWithDWTsignalPeaksExtraction.m           D. Kawasaki			18 June 2017

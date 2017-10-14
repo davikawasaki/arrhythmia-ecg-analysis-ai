@@ -1,11 +1,11 @@
 function features = extractExampleFeaturesFromEcg(filename, filepath, type, exportFilename)
 
-% [USAGE] features = extractExampleFeaturesFromEcg('200m', '../data/200m', 'VT', '../data/exported/vt-200m')
+% USAGE: features = extractExampleFeaturesFromEcg('200m', '../data/200m', 'VT', '../data/exported/vt-200m')
 % This function shows step by step to extract features from a ECG file.
 
 % Last version
 % extractEcgFeatures.m           D. Kawasaki			17 June 2017
-% 		      Davi Kawasaki	       17 June 2017 version 1.0
+% 		      Davi Kawasaki	       14 October 2017 version 2.0
 
 % First load the ECG signal from a file
 [tmSeg,ecgsig,Fs,sizeEcgSig,timeEcgSig] = loadEcgSignal(filepath);

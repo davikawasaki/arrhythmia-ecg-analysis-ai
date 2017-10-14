@@ -1,15 +1,12 @@
 function DWTsignalPeaks = extractDWTsignalPeaks(arrhythmiaMultipleQRS, minPeakHeight, minPeakDistance, sample, arrhythmiaType) 
 
-% usage: DWTsignalPeaks = extractDWTsignalPeaks(arrhythmiaMultipleQRS, 0.5, 0.150)
-%
+% USAGE: DWTsignalPeaks = extractDWTsignalPeaks(arrhythmiaMultipleQRS, 0.5, 0.150)
 % This function extract multiples signal peaks from DWT - amplitudes and
 % times. The scale used for DWT was 3, the minPeakHeight is 0.5 and
 % the minPeakDistance is 0.150.
-%
 % DWTsignalPeaks{i,1} equals to QRS amplitude peaks
 % DWTsignalPeaks{i,2} equals to QRS peaks locations
 % DWTsignalPeaks{i,3} equals to arrhythmia type sample
-%
 
 % Last version
 % extractDWTsignalPeaks.m           D. Kawasaki			17 June 2017

@@ -1,7 +1,6 @@
 function features = extractEcgFeatures(DWTsignalPeaks, fileName, age, sex, medicine) 
 
-% usage: extractEcgFeatures(DWTsignalPeaks, '../data/exported/vt-200m', 89, 'M', 'Yes')
-%
+% USAGE: extractEcgFeatures(DWTsignalPeaks, '../data/exported/vt-200m', 89, 'M', 'Yes')
 % This function extract physiological ECG features from DWT peaks.
 % features{i,1} equals to R peak amplitude in mV
 % features{i,2} equals to R-R peak time delay in s
@@ -10,6 +9,7 @@ function features = extractEcgFeatures(DWTsignalPeaks, fileName, age, sex, medic
 % features{1,5} equals to patient sex data (M/F)
 % features{1,6} equals to patient medicine intake data (Yes/No)
 % features{i,7} equals to wave arrhythmia type
+
 % Last version
 % extractEcgFeatures.m           D. Kawasaki			17 June 2017
 % 		      Davi Kawasaki	       14 October 2017 version 2.0

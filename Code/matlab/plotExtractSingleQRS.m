@@ -1,14 +1,11 @@
 function [qrsExtracted, tmExtracted] = plotExtractSingleQRS(minute, seconds, period, sizeEcgSig, timeEcgSig, ecgsig, tmSeg, sample, arrhythmiaType)
 
-% usage: [qrsExtracted, tmExtracted] = plotExtractSingleQRS(1, 00.0123, 38154, 650000, 1820, ecgsig, tmSeg, '200m', 'VT')
-%
+% USAGE: [qrsExtracted, tmExtracted] = plotExtractSingleQRS(1, 00.0123, 38154, 650000, 1820, ecgsig, tmSeg, '200m', 'VT')
 % This function get a period to extract a QRS wave,
 % which may or not contain signal arrhytmias.
-%
 % References can be found at
 % PhysioBank ATM, at
 %    http://physionet.org/cgi-bin/ATM
-%
 
 % Last version
 % plotExtractSingleQRS.m           D. Kawasaki			16 June 2017

@@ -1,14 +1,11 @@
 function arrhythmiaPeriods = readArrythmiaPeriods(type, filename) 
 
-% usage: arrhythmiaPeriods = readArrythmiaPeriods(VT, '../data/200m') 
-%
+% USAGE: arrhythmiaPeriods = readArrythmiaPeriods(VT, '../data/200m') 
 % This function read the annotations file and extract the respective arrhythmia periods.
-%
 % arrhythmiaPeriods{i,1} equals to minutes sample
 % arrhythmiaPeriods{i,2} equals to seconds sample
 % arrhythmiaPeriods{i,3} equals to period sample
 % arrhythmiaPeriods{i,4} equals to arrhythmia type sample
-%
 
 % Last version
 % readArrythmiaPeriods.m           D. Kawasaki			16 June 2017

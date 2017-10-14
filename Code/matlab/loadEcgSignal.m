@@ -1,25 +1,19 @@
 function [tm,ecgsig,Fs,sizeEcgSig,timeEcgSig] = loadEcgSignal(Name)
 
-% usage: [tm,ecgsig,Fs,sizeEcgSig,timeEcgSig] = loadEcgSignal('../data/200m')
-%
+% USAGE: [tm,ecgsig,Fs,sizeEcgSig,timeEcgSig] = loadEcgSignal('../data/200m')
 % This function reads a pair of files (RECORDm.mat and RECORDm.info) generated
 % by 'wfdb2mat' from a PhysioBank record, baseline-corrects and scales the time
 % series contained in the .mat file, returning time, amplitude and frequency.
 % The baseline-corrected and scaled time series are the rows of matrix 'val', and each
 % column contains simultaneous samples of each time series.
-%
 % 'wfdb2mat' is part of the open-source WFDB Software Package available at
 %    http://physionet.org/physiotools/wfdb.shtml
 % If you have installed a working copy of 'wfdb2mat', run a shell command
-% such as
-%    wfdb2mat -r 100s -f 0 -t 10 >100sm.info
+% such as wfdb2mat -r 100s -f 0 -t 10 >100sm.info
 % to create a pair of files ('100sm.mat', '100sm.info') that can be read
 % by this function.
-%
 % The files needed by this function can also be produced by the
-% PhysioBank ATM, at
-%    http://physionet.org/cgi-bin/ATM
-%
+% PhysioBank ATM, at http://physionet.org/cgi-bin/ATM
 
 % Adapted from
 % loadEcgSignal.m           O. Abdala			16 March 2009

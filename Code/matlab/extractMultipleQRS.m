@@ -1,14 +1,11 @@
 function arrhythmiaMultipleQRS = extractMultipleQRS(arrhythmiaPeriods, sizeEcgSig, timeEcgSig, ecgsig, tmSeg, sample, arrhythmiaType)
 
-% usage: arrhythmiaMultipleQRS = extractMultipleQRS(arrhythmiaPeriods, 650000, 1820, ecgsig, tmSeg, '200m', 'VT')
-%
+% USAGE: arrhythmiaMultipleQRS = extractMultipleQRS(arrhythmiaPeriods, 650000, 1820, ecgsig, tmSeg, '200m', 'VT')
 % This function extract multiples QRS wave,
 % which may or not contain signal arrhytmias.
-%
 % arrhythmiaMultipleQRS{i,1} equals to the QRS extracted signal
 % arrhythmiaMultipleQRS{i,2} equals to the QRS extracted time
 % arrhythmiaMultipleQRS{i,3} equals to arrhythmia type sample
-%
 
 % Last version
 % extractMultipleQRS.m           D. Kawasaki			16 June 2017

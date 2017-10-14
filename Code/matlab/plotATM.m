@@ -1,13 +1,11 @@
 function plotATM(Name)
 
-% usage: plotATM('RECORDm')
-%
+% USAGE: plotATM('RECORDm')
 % This function reads a pair of files (RECORDm.mat and RECORDm.info) generated
 % by 'wfdb2mat' from a PhysioBank record, baseline-corrects and scales the time
 % series contained in the .mat file, and plots them.  The baseline-corrected
 % and scaled time series are the rows of matrix 'val', and each
 % column contains simultaneous samples of each time series.
-%
 % 'wfdb2mat' is part of the open-source WFDB Software Package available at
 %    http://physionet.org/physiotools/wfdb.shtml
 % If you have installed a working copy of 'wfdb2mat', run a shell command
@@ -15,11 +13,8 @@ function plotATM(Name)
 %    wfdb2mat -r 100s -f 0 -t 10 >100sm.info
 % to create a pair of files ('100sm.mat', '100sm.info') that can be read
 % by this function.
-%
 % The files needed by this function can also be produced by the
-% PhysioBank ATM, at
-%    http://physionet.org/cgi-bin/ATM
-%
+% PhysioBank ATM, at  http://physionet.org/cgi-bin/ATM
 
 % plotATM.m           O. Abdala			16 March 2009
 % 		      James Hislop	       27 January 2014	version 1.1

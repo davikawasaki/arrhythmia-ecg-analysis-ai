@@ -1,6 +1,6 @@
 function compareWaveletQRS(qrsEx)
 
-% usage: compareWaveletQRS(qrsEx)
+% USAGE: compareWaveletQRS(qrsEx)
 
 % Last version
 % compareWaveletQRS.m           D. Kawasaki			15 June 2017
