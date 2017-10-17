@@ -87,7 +87,7 @@ O coração, por meio do seu batimento, realiza vários eventos cardíacos chamados 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/eventosCicloCardiaco}
+	\includegraphics[width=4in]{img/eventosCicloCardiaco}
 	\caption{Eventos do ciclo cardíaco representados por diferentes traçados no ventrículo esquerdo.}
 	\label{eventosCicloCardiaco}
 \end{figure}
@@ -119,7 +119,7 @@ diferença de potencial resultante, conforme representado pela Figura \ref{sequen
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/sequenciaDespolarizacacoPolarizacao}
+	\includegraphics[width=4in]{img/sequenciaDespolarizacacoPolarizacao}
 	\caption{Sequência de despolarização e repolarização com a representação das ondas e subperíodos.}
 	\label{sequenciaDespolarizacacoPolarizacao}
 \end{figure}
@@ -138,7 +138,7 @@ A taquicardia acontece quando a frequência cardíaca é maior que 100 batimentos p
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/ecgTaquicardiaVentricular}
+	\includegraphics[width=5in]{img/ecgTaquicardiaVentricular}
 	\caption{Exemplo de ECG com Taquicardia Ventricular.}
 	\label{ecgTaquicardiaVentricular}
 \end{figure}
@@ -147,7 +147,7 @@ Já os casos de Bigeminismo e Trigeminismo ocorrem por contrações ventriculares p
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/arritmiaBigeminismoTrigeminismo}
+	\includegraphics[width=4in]{img/arritmiaBigeminismoTrigeminismo}
 	\caption{Exemplo de ECG com Bigeminismo e Trigeminismo Ventricular.}
 	\label{arritmiaBigeminismoTrigeminismo}
 \end{figure}
@@ -173,7 +173,7 @@ Cada sinal pode determinar um tipo de \textit{Wavelet}-mãe que pode ser utilizad
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/waveletContinuaFamilias}
+	\includegraphics[width=4in]{img/waveletContinuaFamilias}
 	\caption{Famílias de TWC: (a) Daubechies; (b) Coiflet; (c) Haar; (d) Symmlet.}
 	\label{waveletContinuaFamilias}
 \end{figure}
@@ -216,7 +216,7 @@ Para uma melhor compreensão desse algoritmo, é necessário compreender o funciona
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/ecgSignalAnnotationsExample}
+	\includegraphics[width=4in]{img/ecgSignalAnnotationsExample}
 	\caption{Exemplo de anotações extraídas do sinal ECG 100m dentro do site da Physionet ATM.}
 	\label{ecgSignalAnnotationsExample}
 \end{figure}
@@ -233,7 +233,7 @@ Com os 4 arquivos de 17 amostras de sinais foi possível realizar a normalização 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/signalQRSExtractedTrigeminy}
+	\includegraphics[width=4in]{img/signalQRSExtractedTrigeminy}
 	\caption{Sinal QRS de Trigeminismo Ventricular extraído por janelamento do arquivo 201m.}
 	\label{signalQRSExtractedTrigeminy}
 \end{figure}
@@ -246,7 +246,7 @@ Com os 4 arquivos de 17 amostras de sinais foi possível realizar a normalização 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/signalPeaksExtractedTrigeminy}
+	\includegraphics[width=4in]{img/signalPeaksExtractedTrigeminy}
 	\caption{Picos de Trigeminismo Ventricular extraídos do arquivo 201m.}
 	\label{signalPeaksExtractedTrigeminy}
 \end{figure}
@@ -259,7 +259,7 @@ Essas etapas apresentadas foram executadas para cada um dos 17 arquivos e para t
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/featuresExtractedCSVExample}
+	\includegraphics[width=4in]{img/featuresExtractedCSVExample}
 	\caption{Arquivo de características extraído entre todas as amostras e com todas classes de arritmia.}
 	\label{featuresExtractedCSVExample}
 \end{figure}
@@ -272,7 +272,7 @@ Para o \textit{WEKA} foi necessário realizar a conversão do arquivo \textit{CSV}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=3in]{img/featuresExtractedArffExample.png}
+	\includegraphics[width=4in]{img/featuresExtractedArffExample.png}
 	\caption{Cabeçalho do arquivo \textit{ARFF} criado para o treinamento com amostras.}
 	\label{wekaArquive}
 \end{figure}
@@ -281,9 +281,9 @@ Com o arquivo \textit{ARFF} criado, foi necessário carregar o arquivo e escolher
 
 Para o \textit{software MATLAB}, por sua vez, foi necessário (??????). Os classificadores utilizados no \textit{MATLAB} foram: \textit{Complex}, \textit{Medium} e \textit{Simple Trees} de Árvores de Decisão; \textit{Fine}, \textit{Medium}, \textit{Coarse}, \textit{Cosine}, \textit{Cubic} e \textit{Weighted KNN} para Vizinhos mais Próximos; \textit{Linear}, \textit{Quadratic}, \textit{Cubic}, \textit{Fine/Medium/Coarse Gaussian} para SVMs; Boosted, Bagged Trees e Subspace Discriminant para \textit{Ensembles} de Classificadores.
 
-A partir da classificação realizada pelo aprendizado de máquina dos dois \textit{softwares} em questão, pode-se obter resultados para Árvores de Decisão, Vizinhos mais Próximos, SVMs, \textit{Ensembles} de Classificadores, Redes Bayesianas e Redes Neurais. Os resultados obtidos para treinamento e teste de acurácia estão representados, respectivamente, através das Tabelas \ref{table:tabelaResultadosGeralArvoresDecisao} a \ref{table:tabelaResultadosGeralRedesNeurais}, enquanto os períodos de execução através das Tabelas \ref{table:tabelaResultadosPeriodosGeralArvoresDecisao} a \ref{table:tabelaResultadosPeriodosGeralRedesNeurais}. Os resultados de acurácia individuais por classes, por sua vez, podem ser visualizados pelas Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais}.
+A partir da classificação realizada pelo aprendizado de máquina dos dois \textit{softwares} em questão, pode-se obter resultados para Árvores de Decisão, Vizinhos mais Próximos, SVMs, \textit{Ensembles} de Classificadores, Redes Bayesianas e Redes Neurais. Os resultados obtidos para treinamento e teste de acurácia estão representados, respectivamente, através das Tabelas \ref{table:tabelaResultadosGeralArvoresDecisao} a \ref{table:tabelaResultadosGeralRedesNeurais}, enquanto os períodos de execução através das Tabelas \ref{table:tabelaResultadosPeriodosGeralArvoresDecisao} a \ref{table:tabelaResultadosPeriodosGeralRedesNeurais}. Os resultados de acurácia individuais por classes, por sua vez, podem ser visualizados pelas Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais}. Esses valores foram obtidos através das acurácias gerais apresentadas nos \textit{logs} de cada \textit{software}, além das matrizes de confusão de cada execução, as quais exemplos das mesmas podem ser representadas pelas Figuras \ref{wekaRandomForestTrainingResults8020} do \textit{WEKA} para \textit{RandomForest} e \ref{matlabMediumGaussianSVMTrainingResults8020} do \textit{MATLAB} para \textit{Medium Gaussian SVM}. As matrizes de confusão restantes podem ser visualizadas no repositório aberto do \textit{Github} \cite{kawasaki:17}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%55
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{table}[!h]
 	%% increase table row spacing, adjust to taste
@@ -694,8 +694,6 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 	\end{tabular}
 \end{table}
 
-\clearpage
-
 \begin{table}[!h]
 	%% increase table row spacing, adjust to taste
 	\renewcommand{\arraystretch}{1.3}
@@ -750,10 +748,33 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 	\end{tabular}
 \end{table}
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=5in]{img/wekaRandomForestTrainingResults8020.png}
+	\caption{Resultado da Matriz de Confusão do Treinamento com RandomForest de split 80/20 no software WEKA.}
+	\label{wekaRandomForestTrainingResults8020}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=3in]{img/matlabMediumGaussianSVMTrainingResults8020.png}
+	\caption{Resultado da Matriz de Confusão do Treinamento com MediumGaussian SVM de split 80/20 no software MATLAB.}
+	\label{matlabMediumGaussianSVMTrainingResults8020}
+\end{figure}
+
 \section{Resultados e Discussões}
 
 A partir dos resultados obtidos com o aprendizado de máquina, foi possível analisar a eficiência do método de extração de características e dos algoritmos de aprendizado na área de ECG, além de possíveis correções.
 
+Através dos resultados de acurácia média obtidos através das Tabelas \ref{table:tabelaResultadosGeralArvoresDecisao} a \ref{table:tabelaResultadosGeralRedesNeurais} pode-se verificar que os melhores algoritmos de treinamento foram o \textit{RandomForest} e \textit{BayesNet} no \textit{WEKA}, com 91.71\% e 90.13\%. Em teste, por sua vez, os melhores foram \textit{Quadratic SVM}, \textit{Cubic SVM}, \textit{Bagged Trees} e \textit{Fine KNN}, todos do \textit{MATLAB} com respectivamente acurácias de 97.90\%, 97.90\%, 95.70\% e 95.70\%. Considerando resultados médios de cada tipo de algoritmo utilizado em cada classificador, o melhor para treinamento dessa base consistiram em Redes Bayesianas e Árvores de Decisão, com respectivamente 87.47\% e 86.30\% de acurácia média entre todos os algoritmos. Esses classificadores também foram rápidos para obtenção das acurácias, com valores médios de 0.235s e 0.832s, respectivamente.
+
+As acurácias desse trabalho foram inferiores aos dos resultados obtidos no trabalho anterior \cite{kawasakiold:17}, sendo que para \textit{RandomForest} a acurácia obtida havia sido de 98,23\% e para \textit{MultilayerPerceptron} de 95,39\%. Executando a mesma quantidade de amostras do trabalho anterior, com quantidades de batimento de classe normal 72x maior do que as outras amostras de arritmia, verificou-se que as altas acurácias obtidas do trabalho anterior foram justamente sintomas da desproporcionalidade das amostras, onde a grande taxa de acerto da classe (N aumentava o resultado final e, consequentemente, não trazia fidedignidade no aprendizado supervisionado. Sendo assim, esse trabalho tornou-se mais fidedigno na apresentação dos resultados de acurácia, apesar da redução da acurácia média de cada classificador.
+
+Essa reflexão pode ser comprovada por meio ds resultados de acurácia individuais por classes, visualizados pelas Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais}. A taxa de acurácia obtida para a classe normal (sem arritmia) foi quase sempre absoluta, e pode influenciar os resultados. Em contraposição, a classe de Trigeminismo Ventricular foi a que obteve menores acurácias, sendo que a melhor acurácia foi de 82.35\% utilizando \textit{ComplexTrees} ou \textit{MediumTrees} do \textit{MATLAB}. Isso pode ser explicado pela baixa eficácia na extração de valores que caracterizem o Trigeminismo, e que podem ser melhorados por uma extração mais complexa e detalhada.
+
+Por fim, as Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais} apresentam quais classificadores e algoritmos podem representar de forma eficaz cada tipo de arritmia. O Bigeminismo, por exemplo, foi a classe que teve melhores resultados de acurácia, porém os algoritmos que obtiveram maiores quantidades de acerto nessa classe foram o \textit{BayesNet} de Redes Bayesianas e o \textit{MLP} de Redes Neurais, com porcentagens de 99.52\% e 100.0\%, respectivamente. No Trigeminismo, classe que obteve os piores resultados, os melhores algoritmos foram do classificador de Árvores de Decisão, conforme apresentado anteriormente. Por fim, no caso da Taquicardia Ventricular a classificação obteve altas porcentagens, sendo que os melhores algoritmos foram: árvores de decisão do \textit{MATLAB} (100\% para todos os três algoritmos), \textit{Fine Guassian SVM} do \textit{MATLAB} também com 100\% e \textit{NB} do \textit{WEKA} com 100\%. Com isso, pode-se verificar que os melhores classificadores para essa base de dados, considerando todas as acurácias de cada classe, foram os de Árvores de Decisão e de Redes Bayesianas, além de uma leve consideração para Redes Neurais se não considerar a arritmia de Trigeminismo - a qual obteve uma baixa acurácia de 58.97\%.
 
 \section{Conclusão}
 
@@ -763,7 +784,7 @@ Nesse contexto, uma das áreas que tem evoluído com vários trabalhos e artigos co
 
 O objetivo desse trabalho, portanto, foi contribuir no diagnóstico automático e digital de arritmias em um exame de ECG, auxiliando o processo decisório de um profissional de cardiologia. Por meio da extração de características cardíacas de sinais específicos, foi possível realizar o aprendizado de máquina, conseguindo treinar uma inteligência artificial para identificação de três arritmias baseado nas características disponibilizadas.
 
-Conforme apresentado no tópico anterior, a extração e treinamento conseguiram apresentar resultados satisfatórios, principalmente para o classificador (?????). O trabalho, portanto, apresentou uma alternativa rápida e inicial para um diagnóstico cardíaco. Contudo, alguns pontos podem ter comprometido o trabalho, e podem contribuir para trabalhos futuros:
+Conforme apresentado no tópico anterior, a extração e treinamento conseguiram apresentar resultados satisfatórios, principalmente para os classificadores de Árvores e Redes Bayesianas. O trabalho, portanto, apresentou uma alternativa rápida e inicial para um diagnóstico cardíaco. Contudo, alguns pontos podem ter comprometido o trabalho, e podem contribuir para trabalhos futuros:
 
 1. A falta de quantidade de amostras de arritmias influenciou no resultado, principalmente pela falta de amostras das arritmias na base do MIT-BIH. Essa base pode ser aprimorada, contendo uma maior quantidade de sinais com mais ocorrências de arritmias, ou também pode ser realizada uma pesquisa e organização de outras bases.
 
