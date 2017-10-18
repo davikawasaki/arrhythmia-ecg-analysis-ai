@@ -266,7 +266,7 @@ Essas etapas apresentadas foram executadas para cada um dos 17 arquivos e para t
 
 \section{Treinamento com Aprendizado de Máquina}
 
-Após a etapa de extração de características, foi obtido um arquivo \textit{CSV} com 205 amostras contendo três tipos de classes de arritmia: Bigeminismo Ventricular, Trigeminismo Ventricular e Taquicardia Ventricular. Para realizar o treinamento no conjunto de dados obtidos, foi utilizado o \textit{split} de treinamento 80/20 com 158 amostras nos \textit{software} \textit{WEKA} na aba \textit{Classifiers}, enquanto no \textit{MATLAB} o treinamento foi realizado por meio da Toolbox \textit{Classification Learning}. 
+Após a etapa de extração de características, foi obtido um arquivo \textit{CSV} com 205 amostras contendo três tipos de classes de arritmia: Bigeminismo Ventricular, Trigeminismo Ventricular e Taquicardia Ventricular. Para realizar o treinamento no conjunto de dados obtidos, foi utilizado o \textit{split} de treinamento 80/20 com 158 amostras no \textit{software} \textit{WEKA} na aba \textit{Classifiers}, enquanto no \textit{MATLAB} o treinamento foi realizado por meio da \textit{Toolbox Classification Learning}. 
 
 Para o \textit{WEKA} foi necessário realizar a conversão do arquivo \textit{CSV} com os dados normalizados para o formato \textit{ARFF}, permitindo a execução de leituras das amostras de forma categorizada pelo \textit{software} em questão. O arquivo \textit{ARFF} é formado por um cabeçalho, o qual deve declarar as variáveis que cada amostra irá apresentar com seu respectivo tipo. As amostras são colocadas logo abaixo desse cabeçalho, com variáveis separadas por vírgula - representado pela Figura \ref{wekaArquive}.
 
@@ -806,7 +806,7 @@ Conforme apresentado no tópico anterior, a extração e treinamento conseguiram ap
 
 2. A estratégia de extração do complexo QRS por janelamento comprometeu relativamente a qualidade da acurácia do treinamento, dado que nesse trabalho não foram identificados os diferentes tipos de onda de um batimento de ECG. Ou seja, para trabalhos futuros uma extração das ondas P, QRS, T podem melhorar a qualidade do trabalho, assim como conseguir identificar outros tipos de arritmias - como o caso da Fibrilação Atrial, que ocorre na despolarização atrial da onda P.
 
-3. A estratégia de coleta dos picos precisa ser aprimorada, dado que cada tipo de arritmia pode caracterizar uma quantidade de picos diferentes, ou até picos falsos que podem comprometer a extração adequada para treinamento. Isso refletiu na baixa acurácia das amostras de Trigeminismo Ventricular, com valores entre 58.97\% em Redes Neurais e 82.35\% máximo em Árvores de Decisão.
+3. A estratégia de coleta dos picos precisa ser aprimorada, dado que cada tipo de arritmia pode caracterizar uma quantidade de picos diferentes, ou até picos falsos que podem comprometer a extração adequada para treinamento. Isso refletiu na baixa acurácia das amostras de Trigeminismo Ventricular, com valores entre 15.38\% em \textit{Ensembles} de Classificadores e 74.87\% máximo em Árvores de Decisão.
 
 4. A quantidade de características cardíacas extraídas para treinamento melhorou a eficácia dos testes, porém o que ocasionou uma maior fidedignidade nos resultados de acurácia foi a proporção equivalente de amostras correspondentes a cada classe. Mesmo assim, um possível aprimoramento poderia ser a extração de outras características, podendo ser consequência da melhoria da extração de cada uma das ondas P, Q, R e S.
 
