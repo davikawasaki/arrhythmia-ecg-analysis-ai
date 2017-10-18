@@ -266,7 +266,7 @@ Essas etapas apresentadas foram executadas para cada um dos 17 arquivos e para t
 
 \section{Treinamento com Aprendizado de Máquina}
 
-Após a etapa de extração de características, foi obtido um arquivo \textit{CSV} com 205 amostras contendo três tipos de classes de arritmia: Bigeminismo Ventricular, Trigeminismo Ventricular e Taquicardia Ventricular. Para realizar o treinamento no conjunto de dados obtidos, foi utilizado o \textit{split} de treinamento com 158 amostras nos \textit{software} \textit{WEKA} na aba \textit{Classifiers} e no \textit{MATLAB}, por meio da Toolbox (??????). 
+Após a etapa de extração de características, foi obtido um arquivo \textit{CSV} com 205 amostras contendo três tipos de classes de arritmia: Bigeminismo Ventricular, Trigeminismo Ventricular e Taquicardia Ventricular. Para realizar o treinamento no conjunto de dados obtidos, foi utilizado o \textit{split} de treinamento 80/20 com 158 amostras nos \textit{software} \textit{WEKA} na aba \textit{Classifiers}, enquanto no \textit{MATLAB} o treinamento foi realizado por meio da Toolbox \textit{Classification Learning}. 
 
 Para o \textit{WEKA} foi necessário realizar a conversão do arquivo \textit{CSV} com os dados normalizados para o formato \textit{ARFF}, permitindo a execução de leituras das amostras de forma categorizada pelo \textit{software} em questão. O arquivo \textit{ARFF} é formado por um cabeçalho, o qual deve declarar as variáveis que cada amostra irá apresentar com seu respectivo tipo. As amostras são colocadas logo abaixo desse cabeçalho, com variáveis separadas por vírgula - representado pela Figura \ref{wekaArquive}.
 
@@ -279,7 +279,23 @@ Para o \textit{WEKA} foi necessário realizar a conversão do arquivo \textit{CSV}
 
 Com o arquivo \textit{ARFF} criado, foi necessário carregar o arquivo e escolher o classificador supervisionado desejado para realização do treinamento. Para este trabalho foram executadas duas etapas: execução por 10x as amostras de treinamento (correspondentes a 80\% do total) para depois executar apenas uma vez \textit{set} de teste. Os classificadores utilizados no \textit{WEKA} foram: J48 e \textit{Random Forest} de Árvores de Decisão; \textit{IBk} para Vizinhos mais Próximos; NaiveBayes e \textit{Bayes Net} para Redes Bayesianas; \textit{Multilayer Perceptron} para Redes Neurais.
 
-Para o \textit{software MATLAB}, por sua vez, foi necessário (??????). Os classificadores utilizados no \textit{MATLAB} foram: \textit{Complex}, \textit{Medium} e \textit{Simple Trees} de Árvores de Decisão; \textit{Fine}, \textit{Medium}, \textit{Coarse}, \textit{Cosine}, \textit{Cubic} e \textit{Weighted KNN} para Vizinhos mais Próximos; \textit{Linear}, \textit{Quadratic}, \textit{Cubic}, \textit{Fine/Medium/Coarse Gaussian} para SVMs; Boosted, Bagged Trees e Subspace Discriminant para \textit{Ensembles} de Classificadores.
+Para o \textit{software MATLAB}, por sua vez, foi necessário converter o arquivo CSV para matrizes. Com os dados devidamente importados, torna-se necessário determinar qual classe será responsável pela classificação (\textit{response}), enquanto as demais são determinadas como predições (\textit{prediction}) - a escolha entre \textit{prediction} e \textit{response} é demonstrada pela Figura \ref{matlabClassificationLearningPannel}. Para fins de teste existe a opção de não acrescentar uma classe, determinando a mesma como não importante (\textit{do not important}). Com a janela padrão do classificador aberta pode-se escolher um tipo de classificador e alterar seus parâmetros, ou até mesmo escolher um dos classificadores pré-definidos. No total são 5 tipos de classificadores e os mesmos podem ter seus parâmetros alterados, chegando a um total de 22 classificadores pré-definidos.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=4in]{img/matlabClassificationLearningPannel.png}
+	\caption{Janela de nova sessão com escolha entre predições e classificação na Classification Learning Toolbox do MATLAB.}
+	\label{matlabClassificationLearningPannel}
+\end{figure}
+
+A \textit{toolbox} tem a opção de executar todos os classificadores de uma só vez, representada pela Figura \ref{exemploExecucaoClassificadoresMATLAB}, podendo demandar um tempo maior para uma grande quantidade de dados. Recomenda-se usar a função de paralelismo, permitindo com que mais de um classificador seja executado por vez. Para esse trabalho todos os classificadores foram executados, resultando na análise dos seguintes: \textit{Complex}, \textit{Medium} e \textit{Simple Trees} de Árvores de Decisão; \textit{Fine}, \textit{Medium}, \textit{Coarse}, \textit{Cosine}, \textit{Cubic} e \textit{Weighted KNN} para Vizinhos mais Próximos; \textit{Linear}, \textit{Quadratic}, \textit{Cubic}, \textit{Fine/Medium/Coarse Gaussian} para SVMs; Boosted, Bagged Trees e Subspace Discriminant para \textit{Ensembles} de Classificadores.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=4in]{img/exemploExecucaoClassificadoresMATLAB.png}
+	\caption{Resultados da execução de um exemplo com todos classificadores na Classification Learning Toolbox do MATLAB.}
+	\label{exemploExecucaoClassificadoresMATLAB}
+\end{figure}
 
 A partir da classificação realizada pelo aprendizado de máquina dos dois \textit{softwares} em questão, pode-se obter resultados para Árvores de Decisão, Vizinhos mais Próximos, SVMs, \textit{Ensembles} de Classificadores, Redes Bayesianas e Redes Neurais. Os resultados obtidos para treinamento e teste de acurácia estão representados, respectivamente, através das Tabelas \ref{table:tabelaResultadosGeralArvoresDecisao} a \ref{table:tabelaResultadosGeralRedesNeurais}, enquanto os períodos de execução através das Tabelas \ref{table:tabelaResultadosPeriodosGeralArvoresDecisao} a \ref{table:tabelaResultadosPeriodosGeralRedesNeurais}. Os resultados de acurácia individuais por classes, por sua vez, podem ser visualizados pelas Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais}. Esses valores foram obtidos através das acurácias gerais apresentadas nos \textit{logs} de cada \textit{software}, além das matrizes de confusão de cada execução, as quais exemplos das mesmas podem ser representadas pelas Figuras \ref{wekaRandomForestTrainingResults8020} do \textit{WEKA} para \textit{RandomForest} e \ref{matlabMediumGaussianSVMTrainingResults8020} do \textit{MATLAB} para \textit{Medium Gaussian SVM}. As matrizes de confusão restantes podem ser visualizadas no repositório aberto do \textit{Github} \cite{kawasaki:17}.
 
@@ -599,13 +615,13 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 		\hline
 		\textbf{Modo} & \textbf{\textit{J48}} & \textbf{\textit{RandomForest}} & \textbf{\textit{ComplexTrees}} & \textbf{\textit{MediumTrees}} & \textbf{\textit{SimpleTrees}}\\
 		\hline
-		(B & 97.62\% & \textbf{98.81\%} & 72.22\% & 72.22\% & 96.30\% \\		
+		(B & 97.62\% & \textbf{98.81\%} & 76.19\% & 76.19\% & 90.48\% \\		
 		\hline
-		(N & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} \\		
+		(N & \textbf{100.0\%} & \textbf{100.0\%} & 97.82\% & 97.82\% & 97.82\% \\		
 		\hline
-		(T & 58.97\% & 74.87\% & \textbf{82.35\%} & \textbf{82.35\%} & 58.82\% \\		
+		(T & 58.97\% & \textbf{74.87\%} & 61.54\% & 61.54\% & 56.42\% \\		
 		\hline
-		(VT & 96.77\% & 89.68\% & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} \\		
+		(VT & 96.77\% & 89.68\% & \textbf{96.78\%} & \textbf{96.78\%} & \textbf{96.78\%} \\		
 		\hline
 	\end{tabular}
 \end{table}
@@ -628,13 +644,13 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 		\textbf{\textit{Cubic}} &
 		\textbf{\textit{Weighted}}\\
 		\hline
-		(B & 94.29\% & 70.37\% & 92.59\% & \textbf{98.15\%} & \textbf{98.15\%} & 94.44\% & 81.48\% \\		
+		(B & 94.29\% & 76.19\% & 92.86\% & \textbf{100.0\%} & 92.86\% & 92.86\% & 85.71\% \\		
 		\hline
 		(N & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} \\		
 		\hline
-		(T & 72.05\% & \textbf{74.51\%} & 68.63\% & 3.92\% & 68.63\% & 68.63\% & \textbf{74.51\%} \\		
+		(T & 72.05\% & \textbf{74.35\%} & 64.10\% & 0.0\% & 66.66\% & 64.10\% & 66.66\% \\		
 		\hline
-		(VT & 84.19\% & \textbf{92.68\%} & 73.17\% & 0.0\% & 70.73\% & 70.73\% & 85.37\%\\		
+		(VT & 84.19\% & \textbf{90.32\%} & 77.42\% & 0.0\% & 77.71\% & 77.42\% & 83.87\%\\		
 		\hline
 	\end{tabular}
 \end{table}
@@ -656,13 +672,13 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 		\textbf{Modo} & \textbf{\textit{Linear}} & \textbf{\textit{Quadratic}} & \textbf{\textit{Cubic}} & \textbf{\textit{Fine}} &
 		\textbf{\textit{Medium}} & \textbf{\textit{Coarse}} \\
 		\hline
-		(B & \textbf{98.15\%} & 92.59\% & 55.56\% & 77.78\% & 96.30\% & 96.30\% \\
+		(B & \textbf{97.62\%} & 90.48\% & 88.09\% & 71.43\% & \textbf{97.62\%} & \textbf{97.62\%} \\
 		\hline
-		(N & \textbf{100.0\%} & 98.31\% & 98.31\% & 96.61\% & 98.31\% & \textbf{100.0\%} \\		
+		(N & \textbf{100.0\%} & 97.62\% & 97.82\% & 95.65\% & 97.83\% & \textbf{100.0\%} \\		
 		\hline
-		(T & 68.63\% & 68.63\% & \textbf{78.43\%} & 64.71\% & 68.63\% & 68.63\% \\		
+		(T & 58.97\% & \textbf{58.98\%} & \textbf{58.98\%} & 53.84\% & 56.41\% & 56.41\% \\		
 		\hline
-		(VT & 87.80\% & 97.56\% & 95.12\% & \textbf{100.0\%} & 97.56\% & 80.5\% \\		
+		(VT & 83.87\% & 93.55\% & 96.78\% & \textbf{100.0\%} & \textbf{100.0\%} & 80.64\% \\		
 		\hline
 	\end{tabular}
 \end{table}
@@ -683,13 +699,13 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 		\hline
 		\textbf{Modo} & \textbf{\textit{Boosted}} & \textbf{\textit{Bagged}} & \textbf{\textit{Subspace}} \\
 		\hline
-		(B & 29.63\% & 81.48\% & \textbf{94.44\%} \\
+		(B & 19.04\% & 83.33\% & \textbf{97.61\%} \\
 		\hline
 		(N & \textbf{100.0\%} & \textbf{100.0\%} & \textbf{100.0\%} \\		
 		\hline
-		(T & 35.29\% & \textbf{74.51\%} & 68.63\% \\		
+		(T & 15.38\% & \textbf{66.66\%} & 56.41\% \\		
 		\hline
-		(VT & 39.02\% & \textbf{97.56\%} & 58.37\% \\		
+		(VT & 19.35\% & \textbf{96.77\%} & 67.74\% \\		
 		\hline
 	\end{tabular}
 \end{table}
@@ -755,14 +771,14 @@ A partir da classificação realizada pelo aprendizado de máquina dos dois \textit
 	\label{wekaRandomForestTrainingResults8020}
 \end{figure}
 
-\clearpage
-
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=3in]{img/matlabMediumGaussianSVMTrainingResults8020.png}
 	\caption{Resultado da Matriz de Confusão do Treinamento com MediumGaussian SVM de split 80/20 no software MATLAB.}
 	\label{matlabMediumGaussianSVMTrainingResults8020}
 \end{figure}
+
+\clearpage
 
 \section{Resultados e Discussões}
 
@@ -772,9 +788,9 @@ Através dos resultados de acurácia média obtidos através das Tabelas \ref{table:
 
 As acurácias desse trabalho foram inferiores aos dos resultados obtidos no trabalho anterior \cite{kawasakiold:17}, sendo que para \textit{RandomForest} a acurácia obtida havia sido de 98,23\% e para \textit{MultilayerPerceptron} de 95,39\%. Executando a mesma quantidade de amostras do trabalho anterior, com quantidades de batimento de classe normal 72x maior do que as outras amostras de arritmia, verificou-se que as altas acurácias obtidas do trabalho anterior foram justamente sintomas da desproporcionalidade das amostras, onde a grande taxa de acerto da classe (N aumentava o resultado final e, consequentemente, não trazia fidedignidade no aprendizado supervisionado. Sendo assim, esse trabalho tornou-se mais fidedigno na apresentação dos resultados de acurácia, apesar da redução da acurácia média de cada classificador.
 
-Essa reflexão pode ser comprovada por meio ds resultados de acurácia individuais por classes, visualizados pelas Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais}. A taxa de acurácia obtida para a classe normal (sem arritmia) foi quase sempre absoluta, e pode influenciar os resultados. Em contraposição, a classe de Trigeminismo Ventricular foi a que obteve menores acurácias, sendo que a melhor acurácia foi de 82.35\% utilizando \textit{ComplexTrees} ou \textit{MediumTrees} do \textit{MATLAB}. Isso pode ser explicado pela baixa eficácia na extração de valores que caracterizem o Trigeminismo, e que podem ser melhorados por uma extração mais complexa e detalhada.
+Essa reflexão pode ser comprovada por meio ds resultados de acurácia individuais por classes, visualizados pelas Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais}. A taxa de acurácia obtida para a classe normal (sem arritmia) foi quase sempre absoluta, e pode influenciar os resultados. Em contraposição, a classe de Trigeminismo Ventricular foi a que obteve menores acurácias, sendo que a melhor acurácia foi de 74.87\% utilizando \textit{RandomForest} do \textit{WEKA}. Isso pode ser explicado pela baixa eficácia na extração de valores que caracterizem o Trigeminismo, e que podem ser melhorados por uma extração mais complexa e detalhada.
 
-Por fim, as Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais} apresentam quais classificadores e algoritmos podem representar de forma eficaz cada tipo de arritmia. O Bigeminismo, por exemplo, foi a classe que teve melhores resultados de acurácia, porém os algoritmos que obtiveram maiores quantidades de acerto nessa classe foram o \textit{BayesNet} de Redes Bayesianas e o \textit{MLP} de Redes Neurais, com porcentagens de 99.52\% e 100.0\%, respectivamente. No Trigeminismo, classe que obteve os piores resultados, os melhores algoritmos foram do classificador de Árvores de Decisão, conforme apresentado anteriormente. Por fim, no caso da Taquicardia Ventricular a classificação obteve altas porcentagens, sendo que os melhores algoritmos foram: árvores de decisão do \textit{MATLAB} (100\% para todos os três algoritmos), \textit{Fine Guassian SVM} do \textit{MATLAB} também com 100\% e \textit{NB} do \textit{WEKA} com 100\%. Com isso, pode-se verificar que os melhores classificadores para essa base de dados, considerando todas as acurácias de cada classe, foram os de Árvores de Decisão e de Redes Bayesianas, além de uma leve consideração para Redes Neurais se não considerar a arritmia de Trigeminismo - a qual obteve uma baixa acurácia de 58.97\%.
+Por fim, as Tabelas \ref{table:tabelaResultadosIndividuaisArvoresDecisao} a \ref{table:tabelaResultadosIndividuaisRedesNeurais} apresentam quais classificadores e algoritmos podem representar de forma eficaz cada tipo de arritmia. O Bigeminismo, por exemplo, foi a classe que teve melhores resultados de acurácia, sendo que os algoritmos que obtiveram maiores quantidades de acerto nessa classe foram o \textit{BayesNet} de Redes Bayesianas, \textit{CoarseKNN} de Vizinhos Mais Próximos e o \textit{MLP} de Redes Neurais, com porcentagens de 99.52\%, 100.0\% e 100.0\%, respectivamente. No Trigeminismo, classe que obteve os piores resultados, os melhores algoritmos foram \textit{RandomForest} e \textit{FineKNN}, com respectivamente 74.87\% e 74.35\%. Por fim, no caso da Taquicardia Ventricular a classificação obteve altas porcentagens, sendo que os melhores algoritmos alcançaram 100\%: \textit{Fine Gaussian SVM} e \textit{Medium Gaussian SVM} do \textit{MATLAB}, \textit{NB} do \textit{WEKA}. Com isso, pode-se verificar que os melhores classificadores para essa base de dados, considerando todas as acurácias de cada classe, foram os de Árvores de Decisão, de SVMs e de Redes Bayesianas, além de uma leve consideração para Redes Neurais se não considerar a arritmia de Trigeminismo - a qual obteve uma baixa acurácia de 58.97\%.
 
 \section{Conclusão}
 
