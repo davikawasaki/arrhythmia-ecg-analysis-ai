@@ -4,7 +4,7 @@
 
 This work covers cardiac arrhythmia classification through extraction of heart waves characteristics using discrete wavelet transform to filter the signal and machine learning supervised training to classify the exported characteristics with classes/true labels.
 
-The goal is to classify at least two arrhythmia through some extracted characteristics with Weka and MATLAB.
+The goal was to classify at least two arrhythmia through some extracted characteristics with Weka and MATLAB.
 
 # SOFTWARES IN USE
 
@@ -159,11 +159,52 @@ Ventricular Tachycardia: 106, 200, 203, 205, 207, 210, 213, 214, 215, 223, 233
 
 # MACHINE LEARNING STEPS
 
-In development.
+The supervised training was divided in two softwares: WEKA and MATLAB. While WEKA needs an an ARFF (Attribute-Relation File Format) file converted from the exported CSV, MATLAB needs to convert the CSV to a matrix, which were done with csv2matrix.
+
+There were two main CSV files extracted: all-samples.csv and all-samples-proportion.csv. While the all-samples.csv file has 3672 samples with unproportional Normal Synus quantity, the all-samples-proportion.csv file has 205 proportional samples. With these two files, a 80/20 percentage split was made, spliting each file in training and testing. Most of WEKA and MATLAB tests used the proportional files, using the training files for the 10 folds cross-validation (to obtain average accuracy) and the testing files for test sets.
+
+## WEKA TRAINING STEPS
+
+Inside WEKA explorer, open the ARFF file (all-samples-proportion-training.arff) in the preprocess tab:
+
+![WEKA preprocess tab with all-samples-proportion-training.arff loaded file](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Article/final/img/preprocessArffFileProportionalSamples.png)
+
+After the file was loaded, the machine learning process can be instantiated with a classifier option (Bayesian Networks, Neural Networks, Trees and others) and a test option. In this project, six supervised classifiers were choosen to test in WEKA (BayesNet, NaiveBayes, MultilayerPerceptron, IBk, J48 and Random Forest) with a percentage split of 80% (80% of the data to training and the 20% rest to testing). The testing results show average accuracy, as well as the confusion matrix, which summarizes the accuracy for each true label class, as the RandomForest results below:
+
+![WEKA results for RandomForest algorithm, with 80% of the total samples](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Article/final/img/resultRandomForestOld8020.png)
+
+## MATLAB TRAINING STEPS
+
+Inside MATLAB R2017b, open the Classification Learner App, with MATLAB Toolstrip or prompt:
+
+```
+classificationLearner
+```
+
+In a new classification session, there are three main steps that needs to be followed:
+
+1) Select a table or matrix, which will be used from the csv2matrix;
+
+2) Select variables as predictors and response (true label);
+
+3) Define validation method, which in this project the cross-validation was used.
+
+
+![MATLAB Classification Learner Toolbox New Session](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Article/final/img/matlabClassificationLearningPannel.png)
+
+After the configuration well established, any classifiers from the toolbox can be selected to train the selected samples. If Parallel Computing Toolbox is installed, MATLAB will provide the option of training all classifiers at the same time, not affecting the final time results. In this project, eighteen supervised classifiers were choosen to test in MATLAB (Complex/Medium/Simple Trees, Fine/Medium/Coarse/Cosine/Cubic/Weighted KNN, Linear/Quadratic/Cubic SVM, Fine/Medium/Coarse Gaussian SVM, Boosted/Bagged Trees and Discriminant Subspace) with a percentage split of 80% (80% of the data to training and the 20% rest to testing). The testing results show average accuracy for each of the used classifier:
+
+![MATLAB classification learner example results](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Article/final/img/exemploExecucaoClassificadoresMATLAB.png)
+
+Each classifier can show the confusion matrix, which summarizes the accuracy for each true label class, as the ComplexTrees results below:
+
+![WEKA results for RandomForest algorithm, with 80% of the total samples](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Training%20Data/Results/matlab_complex_trees_training_results_80_20.png)
+
+With the evaluation test (split instances and confusion matrix) results for each WEKA and MATLAB, the ECG arrhythmia extraction and analysis were well evaluated for the Random Forest and BayesNet algorithms, while for the CoarseKNN and BoostedTrees algorithms the results were the worst ones. All the results can be seen in /Training Data/Results/ folder, and the comparison for each classifier type can be read in more detail in the Final Article.
 
 # AUTHORS
 
-This work is being developed to AI undergrad-subject last project. The people involved in the project were:
+This work was developed to an AI undergrad-subject last project. The people involved in the project were:
 
 Student: KAWASAKI, Davi // davishinjik [at] gmail.com
 
