@@ -175,7 +175,7 @@ Inside WEKA explorer, open the ARFF file (all-samples-proportion-training.arff) 
 
 After the file was loaded, the machine learning process can be instantiated with a classifier option (Bayesian Networks, Neural Networks, Trees and others) and a test option. In this project, six supervised classifiers were choosen to test in WEKA (BayesNet, NaiveBayes, MultilayerPerceptron, IBk, J48 and Random Forest) with a percentage split of 80% (80% of the data to training and the 20% rest to testing). The testing results show average accuracy, as well as the confusion matrix, which summarizes the accuracy for each true label class, as the RandomForest results below:
 
-![WEKA results for RandomForest algorithm, with 80% of the total samples](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Article/final/img/resultRandomForestOld8020.png)
+![WEKA results for RandomForest algorithm, with 80% of the total samples](https://raw.githubusercontent.com/davikawasaki/arrhythmia-ecg-analysis-ai/master/Training%20Data/Results/weka_random_forest_training_results_80_20.png)
 
 ## MATLAB TRAINING STEPS
 
