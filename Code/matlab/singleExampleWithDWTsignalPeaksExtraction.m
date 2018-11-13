@@ -14,7 +14,7 @@ function [tmSeg,ecgsig,Fs,sizeEcgSig,timeEcgSig,annotationsEcg,qrsExtracted,tmEx
 
 [tmSeg,ecgsig,Fs,sizeEcgSig,timeEcgSig] = loadEcgSignal(filepath);
 annotationsEcg = readAnnotations(filepath);
-[qrsExtracted, tmExtracted] = plotExtractSingleQRS(minute, seconds, period, sizeEcgSig, timeEcgSig, ecgsig, tmSeg, filename, arrhythmiaType);
+[qrsExtracted, tmExtracted] = plotExtractSingleQRS(minutes, seconds, period, sizeEcgSig, timeEcgSig, ecgsig, tmSeg, filename, arrhythmiaType);
 ecgsigTransf = dwtSignal(qrsExtracted, scale);
 [qrsPeaks,locs] = plotDWTsignalPeaks(ecgsigTransf, tmExtracted, minPeakHeight, minPeakDistance);
 
