@@ -163,7 +163,7 @@ Ventricular Tachycardia: 106, 200, 203, 205, 207, 210, 213, 214, 215, 223, 233
 
 # MACHINE LEARNING STEPS
 
-The supervised training was divided in two softwares: WEKA and MATLAB. While WEKA needs an an ARFF (Attribute-Relation File Format) file converted from the exported CSV, MATLAB needs to convert the CSV to a matrix, which were done with csv2matrix.
+The supervised training was divided in two softwares: WEKA and MATLAB. While WEKA needs an ARFF (Attribute-Relation File Format) file converted from the exported CSV, MATLAB needs to convert the CSV to a matrix, which were done with csv2matrix.
 
 There were two main CSV files extracted: all-samples.csv and all-samples-proportion.csv. While the all-samples.csv file has 3672 samples with unproportional Normal Synus quantity, the all-samples-proportion.csv file has 205 proportional samples. With these two files, a 80/20 percentage split was made, spliting each file in training and testing. Most of WEKA and MATLAB tests used the proportional files, using the training files for the 10 folds cross-validation (to obtain average accuracy) and the testing files for test sets.
 
