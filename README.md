@@ -1,3 +1,5 @@
+> This project is not supported anymore. Feel free to fork and extend it on your own.
+
 # Arrhythmia Classification through Characteristics Extraction with Discrete Wavelet Transform & Supervised Training
 
  > :warning: This is a continuation of [another project](https://github.com/davikawasaki/arrhythmia-ecg-analysis-pds), developed to Digital Signal Processing College Final Work. In here it's added another four feature characteristics and MATLAB is used as a classifier engine altogether with WEKA. Consider seeing the DSP repository if you want a smaller version of this project.
@@ -210,14 +212,10 @@ With the evaluation test (split instances and confusion matrix) results for each
 
 This work was developed to an AI undergrad-subject last project. The people involved in the project were:
 
-Student: KAWASAKI, Davi // davishinjik [at] gmail.com
+Student: KAWASAKI, Davi
 
-Student: FLAUSINO, Matheus // matheus.negocio [at] gmail.com
+Student: FLAUSINO, Matheus
 
-Professor: SAITO, Priscila Tiemi Maeda // psaito [at] utfpr.edu.br
+Professor: SAITO, Priscila Tiemi Maeda
 
 # CONTACT & FEEDBACKS
-
-Feel free to contact or pull request me to any relevant updates you may enquire:
-
-KAWASAKI, Davi // davishinjik [at] gmail.com
